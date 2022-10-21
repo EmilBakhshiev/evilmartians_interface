@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC, useState } from 'react';
+import './styles/App.scss';
+import Auth from './components/Auth';
+import { Toaster } from 'react-hot-toast';
 
-function App() {
+const App: FC = () => {
+  const [isAuth, setIsAuth] = useState<boolean>(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className='app-container'>
+      {isAuth ? (
+        <h1
+          className='title-cyberpunk glitch-text glitch layers'
+          data-text='Welcome to Eart'
         >
-          Learn React
-        </a>
-      </header>
+          <span>Welcome to Earth</span>
+        </h1>
+      ) : (
+        <Auth setIsAuth={setIsAuth} />
+      )}
+
+      <div className='background'></div>
+      <Toaster />
     </div>
   );
-}
+};
 
 export default App;

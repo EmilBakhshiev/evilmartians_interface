@@ -1,0 +1,281 @@
+@import 'variables';
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+@keyframes show {
+  0%,
+  49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%,
+  100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+
+.title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+
+  @media screen and (max-width: 570px) {
+	font-size: 25px;
+     margin-bottom: 20px;
+  }
+}
+
+.subtitle {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 570px) {
+    font-size: 20px;
+  }
+}
+.error{
+	color: $red-color;
+	margin: 0;
+	align-self: flex-start;
+	margin-bottom: 5px;
+}
+
+.btn {
+  cursor: pointer;
+  width: 200px;
+  height: 60px;
+  background: linear-gradient(45deg, transparent 5%, $dark-blue-color 5%);
+  margin-top: 20px;
+  border: 0;
+  color: $white-color;
+  letter-spacing: 3px;
+  box-shadow: 6px 0px 0px $red-color;
+  outline: transparent;
+  position: relative;
+  &::after {
+    cursor: pointer;
+    width: 200px;
+    height: 60px;
+    background: linear-gradient(45deg, transparent 5%, $dark-blue-color 5%);
+    border: 0;
+    color: $white-color;
+    letter-spacing: 3px;
+    box-shadow: 6px 0px 0px $red-color;
+    outline: transparent;
+    position: relative;
+    --slice-0: inset(50% 50% 50% 50%);
+    --slice-1: inset(80% -6px 0 0);
+    --slice-2: inset(50% -6px 30% 0);
+    --slice-3: inset(10% -6px 85% 0);
+    --slice-4: inset(40% -6px 43% 0);
+    --slice-5: inset(80% -6px 5% 0);
+    content: 'SIGN UP';
+    line-height: 88px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      transparent 3%,
+      $blue-color 3%,
+      $blue-color 5%,
+      $dark-blue-color 5%
+    );
+    text-shadow: -3px -3px 0px $yellow-color, 3px 3px 0px $blue-color;
+    clip-path: var(--slice-0);
+  }
+  &:hover {
+    &::after {
+      animation: 1s glitch;
+      animation-timing-function: steps(2, end);
+    }
+  }
+
+  @media screen and (max-width: 570px) {
+    width: 150px;
+  }
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+  background-color: $white-color;
+
+  @media screen and (max-width: 570px) {
+	padding: 0 20px;
+  }
+}
+
+.input {
+  background-color: $white-color;
+  border: none;
+  border-bottom: 2px solid $blue-color;
+  padding: 12px 10px;
+  margin: 8px 0;
+  width: 100%;
+  outline:none;
+
+}
+
+.container {
+  background: $white-color;
+  border-radius: 5px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  min-height: 480px;
+
+
+  @media screen and (max-width: 760px) {
+    width: 550px;
+  }
+  @media screen and (max-width: 570px) {
+    width: 400px;
+  }
+
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.container.right-panel-active {
+  .sign-in-container {
+    transform: translateX(100%);
+  }
+  .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+  }
+  .overlay-container {
+    transform: translateX(-100%);
+  }
+  .overlay {
+    transform: translateX(50%);
+  }
+  .overlay-left {
+    transform: translateX(0);
+  }
+  .overlay-right {
+    transform: translateX(20%);
+  }
+}
+.sign-up-container {
+  background: $white-color;
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+}
+.overlay {
+  background: $blue-color;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  color: $white-color;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+.overlay-left {
+  transform: translateX(-20%);
+}
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
