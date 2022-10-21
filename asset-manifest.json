@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/EmilBakhshiev/evilmartians_interface/static/css/main.711691c2.css",
+    "main.js": "/EmilBakhshiev/evilmartians_interface/static/js/main.00c7395a.js",
+    "static/media/Cyberpunk.ttf": "/EmilBakhshiev/evilmartians_interface/static/media/Cyberpunk.ce09ddf4d0a0f2fd4619.ttf",
+    "index.html": "/EmilBakhshiev/evilmartians_interface/index.html",
+    "main.711691c2.css.map": "/EmilBakhshiev/evilmartians_interface/static/css/main.711691c2.css.map",
+    "main.00c7395a.js.map": "/EmilBakhshiev/evilmartians_interface/static/js/main.00c7395a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.711691c2.css",
+    "static/js/main.00c7395a.js"
+  ]
+}
