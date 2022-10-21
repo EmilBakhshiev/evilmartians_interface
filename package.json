@@ -2,6 +2,7 @@
   "name": "evilmartians-interface",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://EmilBakhshiev.github.io/evilmartians_interface",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -23,6 +24,8 @@
     "yup": "^0.32.11"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
