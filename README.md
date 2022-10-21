@@ -4,7 +4,7 @@
 
 В этом репозитории форма авторизации для портала.
 
-Cсылка [https://EmilBakhshiev.github.io/evilmartians_interface] на проект
+Cсылка [https://EmilBakhshiev.github.io/evilmartians_interface] (Cсылка) на проект
 
 ## Скрипты
 
